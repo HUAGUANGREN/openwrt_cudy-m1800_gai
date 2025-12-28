@@ -180,14 +180,8 @@
 			};
 
 			partition@30000 {
-				label = "u-boot-env";
+				label = "config";
 				reg = <0x30000 0x10000>;
-				read-only;
-			};
-
-			partition@40000 {
-				label = "product";
-				reg = <0x40000 0x10000>;
 				read-only;
 			};
 
