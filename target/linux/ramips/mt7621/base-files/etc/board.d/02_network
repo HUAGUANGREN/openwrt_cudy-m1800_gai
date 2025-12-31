@@ -67,7 +67,6 @@ ramips_setup_interfaces()
 	ubnt,unifi-flexhd|\
 	ubnt,unifi-nanohd|\
 	yuncore,fap690|\
-	wavlink,wl-wn573hx1|\
 	wodesys,wd-r1802u|\
 	zyxel,nwa50ax|\
 	zyxel,nwa55axe)
@@ -123,6 +122,7 @@ ramips_setup_interfaces()
 		uci add_list firewall.@zone[1].network='eth_data'
 		uci add_list firewall.@zone[1].network='eth_om'
 		;;
+    wavlink,wl-wn573hx1|\
 	cudy,c200p|\
 	cudy,r700|\
 	mikrotik,routerboard-750gr3)
