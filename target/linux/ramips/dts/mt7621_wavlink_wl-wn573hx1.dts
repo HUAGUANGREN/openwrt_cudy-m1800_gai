@@ -14,7 +14,7 @@
 		led-failsafe = &led_status_blue;
 		led-running = &led_status_blue;
 		led-upgrade = &led_status_blue;
-		label-mac-device = &gmac0;
+		label-mac-device = &gmac1;
 	};
 
 	chosen {
@@ -47,6 +47,15 @@
 	nvmem-cell-names = "mac-address";
 };
 
+&gmac1 {
+	status = "okay";
+	label = "wan";
+	phy-handle = <&ethphy0>;
+
+	nvmem-cells = <&macaddr_factory_3fff4 (-2)>;
+	nvmem-cell-names = "mac-address";
+};
+
 &pcie {
 	status = "okay";
 };
@@ -57,6 +66,7 @@
 		reg = <0x0000 0 0 0 0>;
 		nvmem-cells = <&eeprom_factory_0>, <&precal_factory_e10>;
 		nvmem-cell-names = "eeprom", "precal";
+        mediatek,disable-radar-background;
 	};
 };
 
@@ -113,11 +123,29 @@
 	};
 };
 
+
+&ethphy0 {
+	/delete-property/ interrupts;
+};
+
 &switch0 {
 	ports {
+		
 		port@3 {
 			status = "okay";
-			label = "lan";
+			label = "lan3";
 		};
+
+		port@4 {
+			status = "okay";
+			label = "lan4";
+		};
+	};
+};
+
+&state_default {
+	gpio {
+		groups = "uart3";
+		function = "gpio";
 	};
 };
