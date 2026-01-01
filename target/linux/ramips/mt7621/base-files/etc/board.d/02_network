@@ -76,7 +76,6 @@ ramips_setup_interfaces()
 	comfast,cf-e390ax|\
 	comfast,cf-ew72-v2|\
 	cudy,m1300-v2|\
-	cudy,m1800|\
 	dna,valokuitu-plus-ex400|\
 	genexis,pulse-ex400|\
 	humax,e10|\
@@ -122,6 +121,7 @@ ramips_setup_interfaces()
 		uci add_list firewall.@zone[1].network='eth_data'
 		uci add_list firewall.@zone[1].network='eth_om'
 		;;
+    cudy,m1800|\
     wavlink,wl-wn573hx1)
 		ucidef_set_interfaces_lan_wan "lan3 lan4" "wan"
 		;;
