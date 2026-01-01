@@ -122,8 +122,10 @@ ramips_setup_interfaces()
 		uci add_list firewall.@zone[1].network='eth_data'
 		uci add_list firewall.@zone[1].network='eth_om'
 		;;
-    wavlink,wl-wn573hx1|\
-	cudy,c200p|\
+    wavlink,wl-wn573hx1)
+		ucidef_set_interfaces_lan_wan "lan3 lan4" "wan"
+		;;
+    cudy,c200p|\
 	cudy,r700|\
 	mikrotik,routerboard-750gr3)
 		ucidef_set_interfaces_lan_wan "lan2 lan3 lan4 lan5" "wan"
